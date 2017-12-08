@@ -471,7 +471,7 @@ public abstract class WordBasedGenerativeModelSegment extends Segment
      * @param vertexList
      * @param wordNetAll
      */
-    protected List<Term> decorateResultForIndexMode(List<Vertex> vertexList, WordNet wordNetAll)
+    protected static List<Term> decorateResultForIndexMode(List<Vertex> vertexList, WordNet wordNetAll)
     {
         List<Term> termList = new LinkedList<Term>();
         int line = 1;
@@ -496,7 +496,7 @@ public abstract class WordBasedGenerativeModelSegment extends Segment
                         Vertex smallVertex = iterator.next();
                         if (
                                 ((termMain.nature == Nature.mq && smallVertex.hasNature(Nature.q)) ||
-                                        smallVertex.realWord.length() >= config.indexMode)
+                                        smallVertex.realWord.length() > 1)
                                         && smallVertex != vertex // 防止重复添加
                                         && currentLine + smallVertex.realWord.length() <= line + vertex.realWord.length() // 防止超出边界
                             )

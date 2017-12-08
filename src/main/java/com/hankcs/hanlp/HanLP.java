@@ -716,5 +716,4 @@ public class HanLP
         // The actual length of the summary generated may be short than the required length, but never longer;
         return TextRankSentence.getSummary(document, max_length, sentence_separator);
     }
-
 }

@@ -47,7 +47,7 @@ public class DijkstraSegment extends WordBasedGenerativeModelSegment
 
         if (config.useCustomDictionary)
         {
-            if (config.indexMode > 0)
+            if (config.indexMode)
                 combineByCustomDictionary(vertexList, wordNetAll);
             else combineByCustomDictionary(vertexList);
         }
@@ -107,7 +107,7 @@ public class DijkstraSegment extends WordBasedGenerativeModelSegment
         }
 
         // 如果是索引模式则全切分
-        if (config.indexMode > 0)
+        if (config.indexMode)
         {
             return decorateResultForIndexMode(vertexList, wordNetAll);
         }
